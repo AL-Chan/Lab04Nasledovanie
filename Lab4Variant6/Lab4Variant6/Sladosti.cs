@@ -20,9 +20,9 @@ namespace Lab4Variant6
         public enum ChocolateTip { black, milky, white };
         public class Chocolates : Sladosti
         {
-            public NachinkaTip vkus = NachinkaTip.nuga; // начинка шоколада
-            public int NumPlitki = 4; //колво плиток
-            public ChocolateTip tip = ChocolateTip.black; //три типа шоколада
+            public NachinkaTip vkus; // начинка шоколада
+            public int NumPlitki; //колво плиток
+            public ChocolateTip tip; //три типа шоколада
             public static Chocolates GenerateRandomly()
             {
                 return new Chocolates
@@ -66,18 +66,18 @@ namespace Lab4Variant6
             }
             public override String MoreInfo()
             {
-                return (OpisanieTipa() + "шоколад" + OpisanieNachinki() + " ,вес " + Ves + "грамм" +
-                    ", количество плиток: " + NumPlitki);
+                return ("\n" + OpisanieTipa() + " шоколад " + OpisanieNachinki() +
+                    "\nВес: " + Ves + " грамм" + "\nКоличество плиток: " + NumPlitki);
             }
         }
-        
+
         //выпечка
         public enum BakeryGoodsTip { cupcake, donut, waffle, pirozhok, blinchik };
         public class BakeryGoods : Sladosti
         {
-            public BakeryGoodsTip tip = BakeryGoodsTip.waffle; //тип выпечки
-            public int FoodEnergy = 339; //ккал
-            public bool Yagoda = false; //наличие ягоды
+            public BakeryGoodsTip tip; //тип выпечки
+            public int FoodEnergy; //ккал
+            public bool Yagoda; //наличие ягоды
             public static BakeryGoods GenerateRandomly()
             {
                 return new BakeryGoods
@@ -118,17 +118,17 @@ namespace Lab4Variant6
             }
             public override String MoreInfo()
             {
-                return (OpisanieTipa() + EstbYagoda() + " ,вес " + Ves + "грамм" +
-                    ", количество ккал: " + FoodEnergy);
+                return ("\n" + OpisanieTipa() + EstbYagoda() + "\nВес: " + Ves + " грамм" +
+                    "\nЭнергетическая ценность: " + FoodEnergy + " ккал");
             }
         }
-        
+
         //фрукты
         public enum FruitTip { pear, apple, plum, apricot, pomegrenate, kiwifruit, grape, banana, pitaya };
         public class Fruits : Sladosti
         {
-            public FruitTip tip = FruitTip.kiwifruit; //вид фрукта
-            public int Spelost = 0; //спелость %
+            public FruitTip tip; //вид фрукта
+            public int Spelost; //спелость %
             public static Fruits GenerateRandomly()
             {
                 return new Fruits
@@ -166,8 +166,8 @@ namespace Lab4Variant6
             }
             public override String MoreInfo()
             {
-                return ("Фрукт " + OpisanieTipa() + " ,вес " + Ves + "грамм" +
-                    ", спелость фрукта прямо сейчас: " + Spelost);
+                return ("\nФрукт " + OpisanieTipa() + "\nВес: " + Ves + " грамм" +
+                    "\nСпелость фрукта прямо сейчас: " + Spelost + "%");
             }
         }
     }
