@@ -27,10 +27,10 @@ namespace Lab4Variant6
             {
                 return new Chocolates
                 {
-                    Ves = rnd.Next(2, 12) * 10,
+                    Ves = rnd.Next(3, 12) * 10, // вес от 30 до 120 грамм
                     vkus = (NachinkaTip)rnd.Next(4),
-                    NumPlitki = rnd.Next(3, 8),
-                    tip = (ChocolateTip)rnd.Next(3)
+                    NumPlitki = rnd.Next(3, 8), // плитки от 3 до 8
+                    tip = (ChocolateTip)rnd.Next(3) 
                 };
             }
 
@@ -70,6 +70,7 @@ namespace Lab4Variant6
                     ", количество плиток: " + NumPlitki);
             }
         }
+        
         //выпечка
         public enum BakeryGoodsTip { cupcake, donut, waffle, pirozhok, blinchik };
         public class BakeryGoods : Sladosti
@@ -81,10 +82,10 @@ namespace Lab4Variant6
             {
                 return new BakeryGoods
                 {
-                    Ves = rnd.Next(5, 21) * 10,
-                    tip = (BakeryGoodsTip)rnd.Next(5),
-                    FoodEnergy = rnd.Next(30, 50) * 10,
-                    Yagoda = rnd.Next(2) == 0,
+                    Ves = rnd.Next(5, 21) * 10, // от 50 до 210 грамм
+                    tip = (BakeryGoodsTip)rnd.Next(5), 
+                    FoodEnergy = rnd.Next(30, 50) * 10, // от 300 до 500 ккал
+                    Yagoda = rnd.Next(2) == 0, // наличие ягоды
                 };
             }
             private String OpisanieTipa()
@@ -107,10 +108,10 @@ namespace Lab4Variant6
             }
             private String EstbYagoda()
             {
-                switch (this.Yagoda) //тип выпечки
+                switch (this.Yagoda) //наличие ягоды внутри или сверху
                 {
                     case true:
-                        return "c ягодкой";
+                        return " c ягодкой";
                     default:
                         return "";
                 }
@@ -121,24 +122,53 @@ namespace Lab4Variant6
                     ", количество ккал: " + FoodEnergy);
             }
         }
+        
         //фрукты
-        public enum FruitTip { pear, apple, plum, apricot, pomegrenate, kiwifruit, grape, banana, pineapple, pitaya };
+        public enum FruitTip { pear, apple, plum, apricot, pomegrenate, kiwifruit, grape, banana, pitaya };
         public class Fruits : Sladosti
         {
             public FruitTip tip = FruitTip.kiwifruit; //вид фрукта
             public int Spelost = 0; //спелость %
-            public bool Kostochki = false; //количество косточек
             public static Fruits GenerateRandomly()
             {
                 return new Fruits
                 {
-                    Ves = rnd.Next(12, 100) * 10,
-                    tip = (FruitTip)rnd.Next(10),
-                    Spelost = rnd.Next() % 101,
-                    Kostochki = rnd.Next(2) == 0,
+                    Ves = rnd.Next(12, 65) * 10, // от 120 до 650 грамм
+                    tip = (FruitTip)rnd.Next(9), // выбор среди девяти предложенных фруктов
+                    Spelost = rnd.Next() % 101, // спелость от 0 до 100
                 };
             }
-
+            private String OpisanieTipa()
+            {
+                switch (this.tip) //тип фрукта
+                {
+                    case FruitTip.pear:
+                        return "Груша";
+                    case FruitTip.apple:
+                        return "Яблоко";
+                    case FruitTip.plum:
+                        return "Слива";
+                    case FruitTip.apricot:
+                        return "Абрикос";
+                    case FruitTip.pomegrenate:
+                        return "Гранат";
+                    case FruitTip.kiwifruit:
+                        return "Киви";
+                    case FruitTip.grape:
+                        return "Виноград";
+                    case FruitTip.banana:
+                        return "Банан";
+                    case FruitTip.pitaya:
+                        return "Драконий фрукт";
+                    default:
+                        return "";
+                }
+            }
+            public override String MoreInfo()
+            {
+                return ("Фрукт " + OpisanieTipa() + " ,вес " + Ves + "грамм" +
+                    ", спелость фрукта прямо сейчас: " + Spelost);
+            }
         }
     }
 }
