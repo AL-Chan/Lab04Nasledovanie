@@ -132,7 +132,7 @@ namespace Lab4Variant6
             return new Fruits
             {
                 Ves = rnd.Next(12, 65) * 10, // от 120 до 650 грамм
-                tip = (FruitTip)rnd.Next(9), // выбор среди девяти предложенных фруктов
+                tip = (FruitTip)rnd.Next(8), // выбор среди восьми предложенных фруктов
                 Spelost = rnd.Next() % 101, // спелость от 0 до 100
             };
         }
