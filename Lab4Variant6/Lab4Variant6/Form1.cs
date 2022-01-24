@@ -1,13 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Lab4Variant6.Sladosti;
 
 namespace Lab4Variant6
 {
@@ -46,7 +39,7 @@ namespace Lab4Variant6
         {
             if (this.sladostiList.Count == 0)
             {
-                InfoLog.Text = "Тут ничего";
+                InfoLog.Text = "\nТут ничего";
                 return;
             }
             var sladosti = this.sladostiList[0];
@@ -79,7 +72,7 @@ namespace Lab4Variant6
 
             MenuText.Text = "\nШоколадки\tВыпечка\t\tФрукты";
             MenuText.Text += "\n";
-            MenuText.Text += String.Format("{0}\t\t{1}\t\t {2}", ChocolatesCount, BakeryGoodsCount, FruitsCount);
+            MenuText.Text += String.Format("{0} шт.\t\t{1} шт.\t\t {2} шт.", ChocolatesCount, BakeryGoodsCount, FruitsCount);
         }
     }
 }
